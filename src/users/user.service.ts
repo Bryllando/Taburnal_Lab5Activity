@@ -20,7 +20,7 @@ async function getById(id: number): Promise<User> {
 }
 
 async function create(params: UserCreationAttributes & { password: string }): Promise<void> {
-    const existingUser = await db.User.findOne({ where: { username: params.email } });
+    const existingUser = await db.User.findOne({ where: { email: params.email } });
     if (existingUser) {
         throw new Error(`Username "${params.email}" is already taken`);
     }
@@ -54,7 +54,7 @@ async function _delete(id: number): Promise<void> {
 
 
 async function getUser(id: number): Promise<User> {
-    const user = await db.User.scope('withHash').findbyPk(id);
+    const user = await db.User.scope('withHash').findByPk(id);
     if (!user) { throw new Error('User not found'); }
     return user;
 }

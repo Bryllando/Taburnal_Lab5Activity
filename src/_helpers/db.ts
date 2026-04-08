@@ -18,6 +18,8 @@ export async function initialize(): Promise<void> {
 
     const sequelize = new Sequelize(database, user, password, {
         dialect: 'mysql',
+        host,
+        port,
     });
 
     const { default: userModel } = await import('../users/user.model');
