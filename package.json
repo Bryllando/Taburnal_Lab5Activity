@@ -9,6 +9,7 @@
   "scripts": {
     "test": "ts-node tests/users.test.ts",
     "build": "tsc",
+    "build:frontend": "tsc -p tsconfig.frontend.json",
     "start:dev": "nodemon --exec ts-node src/server.ts",
     "start": "node dist/server.js"
   },
